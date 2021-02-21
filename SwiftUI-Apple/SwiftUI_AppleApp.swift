@@ -16,5 +16,9 @@ struct SwiftUI_AppleApp: App {
         WindowGroup {
             ContentView().environmentObject(ModelData())
         }
+        
+        #if os(watchOS)
+        WKNotificationScene(controller: NotificationController.self, category: "LandmarkNear")
+        #endif
     }
 }
